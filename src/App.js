@@ -1,24 +1,24 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Fichier from './Components/Fichier';
+import Part from './Components/Part';
+import Slider from './Components/Slider';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+
+
+<Router>
+         <Routes>
+         <Route path='/' Component={Slider}></Route>
+         <Route path='/part' Component={Part}></Route>
+         <Route path='/file' Component={Fichier}></Route>
+
+    </Routes>
+      </Router>
+</>
   );
 }
 
