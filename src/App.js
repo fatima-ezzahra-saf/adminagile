@@ -12,8 +12,7 @@ function App() {
 
 <Router>
          <Routes>
-         <Route path='/' Component={Slider}></Route>
-         <Route path='/part' Component={Part}></Route>
+         <Route path='/' Component={Part}></Route>
          <Route path='/file' Component={Fichier}></Route>
 
     </Routes>

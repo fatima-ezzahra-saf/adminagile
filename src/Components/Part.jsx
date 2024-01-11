@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faFileUpload } from '@fortawesome/free-solid-svg-icons';
 
 const Part = () => {
   const [data, setData] = useState([]);
@@ -28,12 +30,11 @@ const Part = () => {
 
 
 
-<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3" style={{backgroundColor:"#787c79"}} id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
-        <img src="../assets/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo"/>
-        <span class="ms-1 font-weight-bold text-white">Material Dashboard 2</span>
+        <h3 className="ms-1 font-weight-bold text-white" style={{textAlign:"center"}}>Admin page</h3>
       </a>
     </div>
     <hr class="horizontal light mt-0 mb-2"/>
@@ -41,7 +42,7 @@ const Part = () => {
       <ul class="navbar-nav">
         <li class="nav-item">
             
-          <a class="nav-link text-white active bg-gradient-primary" href="/">
+          <a class="nav-link text-white active "style={{backgroundColor:"#006CA5"}} href="/">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -53,7 +54,7 @@ const Part = () => {
      
      
         <li class="nav-item">
-          <a class="nav-link text-white " href="/part">
+          <a class="nav-link text-white " href="/">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">person</i>
             </div>
@@ -81,49 +82,37 @@ const Part = () => {
     </div>
   </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg "> 
-  
-  
-
-
-
-      <li class="nav-item">
-        <a class="nav-link text-white active bg-gradient-primary" href="../pages/dashboard.html">
-          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center"></div>
-          <span class="nav-link-text ms-1">liste des participant </span>
-        </a>
-      </li>
-
       <div>
-        <h1>Table des participants</h1>
-        <table border="1">
+        <h1 style={{textAlign:"center",fontStyle:"italic"}}>Participants</h1><br />
+        <table className="table  table-hover" style={{ width: '70%', margin: 'auto', textAlign: 'center' }}>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Nom</th>
-              <th>Prénom</th>
-              <th>E-mail</th>
-              <th>Fonction</th>
-              <th>Somme</th>
+              <th >ID</th>
+              <th >Nom</th>
+              <th >Prénom</th>
+              <th >E-mail</th>
+              <th >Fonction</th>
+              <th >Somme</th>
+              <th >Action</th>
             </tr>
           </thead>
           <tbody>
             {data.map((item) => (
               <tr key={item.id}>
-                <td>{item.id}</td>
-                <td>{item.nom}</td>
-                <td>{item.prenom}</td>
-                <td>{item.email}</td>
-                <td>{item.fonction}</td>
-                <td>{item.somme}</td>
-                <td>
-                  <button onClick={() => handleDelete(item.id)}>Supprimer</button>
+                <td >{item.id}</td>
+                <td >{item.nom}</td>
+                <td >{item.prenom}</td>
+                <td >{item.email}</td>
+                <td >{item.fonction}</td>
+                <td >{item.somme}</td>
+                <td >
+                  <button className="btn btn-danger" onClick={() => handleDelete(item.id)}><FontAwesomeIcon icon={faTrash} /></button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      
 </main>
     </>
   );
